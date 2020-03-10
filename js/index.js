@@ -82,3 +82,15 @@ nav.style.marginTop = '-300px';
 const navBtn = document.querySelector('.logo-heading');
  
 const logoText = document.querySelector('.logo-heading');
+
+//MOUSEOVER - will change the color of the logo into a different color each time the mouse is over the logo
+logoText.addEventListener('mouseover', function() {
+    logoText.style.color = randomColor();
+});
+
+//2 We'll turn the random color off when the mouse is no longer over the logo it returns to black instead of staying the random color
+logoText.addEventListener('mouseout', function(){
+    logoText.style.color = 'black';
+});
+
+
