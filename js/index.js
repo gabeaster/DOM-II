@@ -78,19 +78,25 @@ const nav = document.querySelector('nav');
 const navHead = document.querySelector('.main-navigation');
 
 //this will set the nav offscreen
-nav.style.marginTop = '-300px';
-const navBtn = document.querySelector('.logo-heading');
+// nav.style.marginTop = '-300px';
+// const navBtn = document.querySelector('.logo-heading');
  
 const logoText = document.querySelector('.logo-heading');
 
-//MOUSEOVER - will change the color of the logo into a different color each time the mouse is over the logo
+//1 MOUSEOVER - will change the color of the logo into a different color each time the mouse is over the logo
 logoText.addEventListener('mouseover', function() {
     logoText.style.color = randomColor();
 });
 
-//2 We'll turn the random color off when the mouse is no longer over the logo it returns to black instead of staying the random color
+//2 MOUSEOUT - We'll turn the random color off when the mouse is no longer over the logo it returns to black instead of staying the random color
 logoText.addEventListener('mouseout', function(){
     logoText.style.color = 'black';
 });
 
+//3 DBLCLICK - will style nav to a random background color on a double click
+nav.addEventListener('dblclick', function(event){
+    nav.style.backgroundColor = randomColor();
+});
+
+//5 
 
