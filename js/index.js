@@ -76,10 +76,11 @@ function navToggle() {
 
 const nav = document.querySelector('nav');
 const navHead = document.querySelector('.main-navigation');
+const navBtn = document.querySelector('.logo-heading');
 
 //this will set the nav offscreen
 // nav.style.marginTop = '-300px';
-// const navBtn = document.querySelector('.logo-heading');
+
  
 const logoText = document.querySelector('.logo-heading');
 
@@ -98,5 +99,64 @@ nav.addEventListener('dblclick', function(event){
     nav.style.backgroundColor = randomColor();
 });
 
-//5 
+//4 CLICK - will change the color of the top section to a random color
+navHead.addEventListener('keydown', function() {
+    navHead.style.background = randomColor();
+});
 
+//5 forEach on the navItems that also incudes preventDefault
+const navItems = document.querySelectorAll('nav a');
+navItems.forEach(function(item){
+    item.addEventListener.apply('click', function(event) {
+        event.target.style.color = randomColor();
+        event.preventDefault();
+        event.stopPropagation();
+    });
+});
+
+//6 Keydown This will change the color of p tags when the a key is pressed
+const superText = document.querySelectorAll('.content-section');
+superText.addEventListener('click', function(){
+    superText.style.backgroundColor = randomColor();
+    event.stopPropagation;
+});
+
+
+// 7 this will change the color of the header
+const header = document.querySelector('.intro');
+header.addEventListener('scroll',function(event){
+    event.currentTarget.style.backgroundColor = randomColor();
+    event.stopPropagation;
+});
+
+//8 and 9; this is to rickroll; used onload to make sure the image loads in the background; then use click to actually 
+let rick = new Image();
+let ricked = true;
+rick.src =
+  "http://pm1.narvii.com/6350/75953997c8fbb2766b8feb9cf347b2464df25b9c_hq.jpg";
+
+  const imgs = document.querySelectorAll('img');
+rick.onload = function() {
+
+  imgs.forEach(function(img) {
+    img.addEventListener('click', function() {
+      img.src = rick.src;
+      ricked = true;
+    });
+  });
+
+const body = document.querySelector('body');
+  window.addEventListener('resize', function(event) {
+    if (ricked) {
+      body.style.background = `url(${rick.src})`;
+      body.style.backgroundSize = '100%';
+      body.style.backgroundAttachment = "fixed";
+    }
+  });
+};
+
+//10
+const text = document.querySelectorAll('h2');
+text.addEventListener("click", function() {
+  text.textContent = "I'm Pickle Rick!";
+});
